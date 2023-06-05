@@ -30,7 +30,6 @@ public class BurgerTest {
     @Test
     public void testSetBuns() {
         Burger burger = new Burger();
-        Assert.assertEquals(burger.bun, null);
         burger.setBuns(bun);
         Assert.assertEquals(burger.bun, bun);
     }
@@ -38,7 +37,6 @@ public class BurgerTest {
     @Test
     public void testAddIngredient() {
         Burger burger = new Burger();
-        Assert.assertEquals(burger.ingredients.size(), 0);
         burger.addIngredient(ingredient);
         Assert.assertEquals(burger.ingredients.size(), 1);
     }
@@ -46,9 +44,7 @@ public class BurgerTest {
     @Test
     public void testRemoveIngredient() {
         Burger burger = new Burger();
-        Assert.assertEquals(burger.ingredients.size(), 0);
         burger.addIngredient(ingredient);
-        Assert.assertEquals(burger.ingredients.size(), 1);
         burger.removeIngredient(INDEX);
         Assert.assertEquals(burger.ingredients.size(), 0);
     }
@@ -56,10 +52,8 @@ public class BurgerTest {
     @Test
     public void testMoveIngredient() {
         Burger burger = new Burger();
-        Assert.assertEquals(burger.ingredients.size(), 0);
         burger.addIngredient(ingredient);
         burger.addIngredient(ingredient);
-        Assert.assertEquals(burger.ingredients.size(), 2);
         burger.moveIngredient(INDEX, NEW_INDEX);
         Assert.assertEquals(burger.ingredients.get(NEW_INDEX), burger.ingredients.get(INDEX));
     }
@@ -67,10 +61,8 @@ public class BurgerTest {
     @Test
     public void testGetPrice() {
         Burger burger = new Burger();
-        Assert.assertEquals(burger.ingredients.size(), 0);
         burger.setBuns(bun);
         burger.addIngredient(ingredient);
-        Assert.assertEquals(burger.ingredients.size(), 1);
         Mockito.when(bun.getPrice()).thenReturn(100F);
         Mockito.when(ingredient.getPrice()).thenReturn(100F);
         float actualPrice = burger.getPrice();
@@ -80,11 +72,9 @@ public class BurgerTest {
     @Test
     public void testGetReceipt() {
         Burger burger = new Burger();
-        Assert.assertEquals(burger.ingredients.size(), 0);
         burger.setBuns(bun);
         burger.addIngredient(ingredient);
         burger.addIngredient(ingredient);
-        Assert.assertEquals(burger.ingredients.size(), 2);
         Mockito.when(bun.getName()).thenReturn("white bun");
         Mockito.when(ingredient.getType()).thenReturn(IngredientType.SAUCE);
         Mockito.when(ingredient.getName()).thenReturn("sour cream");

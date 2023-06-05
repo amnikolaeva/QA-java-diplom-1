@@ -19,7 +19,10 @@ public class BunTest {
     public static Object[][] getData() {
         return new Object[][] {
                 {"white bun", 100F},
-                {"red bun", 300F}
+                {"", 0},
+                {"a", -1F},
+                {null, 10000000000000000000F},
+                {null, 0}
         };
     }
 
